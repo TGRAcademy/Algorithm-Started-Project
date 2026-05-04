@@ -1,0 +1,151 @@
+import Foundation
+
+/*
+ # ✈️ Swift Fundamentals — Part 5
+ ## Computed Properties
+ 
+ A **computed property** doesn't store a value — it calculates
+ one on the fly every time you access it.
+ 
+     var fullName: String {
+         return "\(firstName) \(lastName)"
+     }
+ 
+ This is great for derived or formatted data. The value always
+ stays in sync with the properties it depends on.
+*/
+
+// MARK: - 🗂 Data Model
+
+struct Trip {
+    var destination: String?
+    var budget: Int?
+    var duration: Int?
+    
+    // ─────────────────────────────────────────────────────────
+    // MARK: Task 5A — Your First Computed Property
+    // ─────────────────────────────────────────────────────────
+    
+    // TODO: Implement this computed property.
+    //       It should return a formatted summary string.
+    //       Handle nil values with ?? or if let.
+    //
+    // Example outputs:
+    //   "📍 Tokyo — 💸 $2000 — 📅 7 days"
+    //   "📍 Unknown — 💸 N/A — 📅 5 days"
+    
+    var summary: String {
+        let dest = destination ?? "Unknown"
+        let cost = budget != nil ? "$\(budget!)" : "N/A"
+        let days = duration != nil ? "\(duration!) days" : "N/A"
+        return "📍 \(dest) — 💸 \(cost) — 📅 \(days)"
+    }
+    
+    // ─────────────────────────────────────────────────────────
+    // MARK: Task 5C — More Computed Properties
+    // ─────────────────────────────────────────────────────────
+    
+    // TODO: Add a computed property `costPerDay` that returns Int?
+    //       It should return budget / duration if both exist,
+    //       or nil if either is missing.
+    
+    var costPerDay: Int? {
+        guard let budget = budget, let duration = duration, duration > 0 else {
+            return nil
+        }
+        return budget / duration
+    }
+    
+    // TODO: Add a computed property `isComplete` that returns Bool.
+    //       Returns true only if ALL three fields have values.
+    
+    var isComplete: Bool {
+        return destination != nil && budget != nil && duration != nil
+    }
+}
+
+let trips: [Trip] = [
+    Trip(destination: "Tokyo",    budget: 2000, duration: 7),
+    Trip(destination: nil,        budget: 800,  duration: 3),
+    Trip(destination: "Bali",     budget: nil,  duration: 5),
+    Trip(destination: "Paris",    budget: 1500, duration: nil),
+    Trip(destination: "New York", budget: 3000, duration: 10),
+    Trip(destination: nil,        budget: nil,  duration: nil),
+]
+
+
+// MARK: - Task 5A: Using the Summary Property
+
+print("═══════════════════════════════════════")
+print("  Task 5A: Trip Summaries")
+print("═══════════════════════════════════════")
+
+for (index, trip) in trips.enumerated() {
+    print("Trip \(index + 1): \(trip.summary)")
+}
+
+print()
+
+
+// MARK: - Task 5B: Stored vs Computed
+
+print("═══════════════════════════════════════")
+print("  Task 5B: Computed Stays In Sync")
+print("═══════════════════════════════════════")
+
+var myTrip = Trip(destination: "London", budget: 1800, duration: 6)
+print("Before: \(myTrip.summary)")
+
+myTrip.budget = 2500
+print("After:  \(myTrip.summary)")
+
+// 💡 The summary automatically reflects the new budget!
+
+myTrip.destination = "Edinburgh"
+print("Updated: \(myTrip.summary)")
+
+print()
+
+
+// MARK: - Task 5C: Using costPerDay and isComplete
+
+print("═══════════════════════════════════════")
+print("  Task 5C: Derived Properties")
+print("═══════════════════════════════════════")
+
+for (index, trip) in trips.enumerated() {
+    let status = trip.isComplete ? "✅ Complete" : "⚠️ Incomplete"
+    let cost = trip.costPerDay != nil ? "$\(trip.costPerDay!)/day" : "N/A"
+    print("Trip \(index + 1): \(status) — Cost per day: \(cost)")
+}
+
+print()
+
+
+// MARK: - Task 5D: Combining Computed Properties
+
+print("═══════════════════════════════════════")
+print("  Task 5D: Complete Trips Report")
+print("═══════════════════════════════════════")
+
+for trip in trips {
+    guard trip.isComplete else { continue }
+    
+    print("📋 \(trip.summary)")
+    if let cpd = trip.costPerDay {
+        print("   → 💰 Cost per day: $\(cpd)")
+    }
+}
+
+print()
+
+/*
+ 🎓 Key Takeaways:
+ ✅ Computed properties calculate a value every time they're accessed.
+ ✅ They automatically stay in sync when other properties change.
+ ✅ Great for: formatted strings, derived values, status checks.
+ ✅ Computed properties can return optionals (like `costPerDay`).
+ ✅ They keep formatting logic INSIDE the struct, making loops cleaner.
+ 
+ 🔜 Next: Part 6 — Combine Everything!
+*/
