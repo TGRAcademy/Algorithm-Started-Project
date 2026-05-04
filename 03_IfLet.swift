@@ -59,13 +59,6 @@ print("  Task 3A: Unwrap Destinations")
 print("═══════════════════════════════════════")
 
 // 🛠 Your code here:
-for (index, trip) in trips.enumerated() {
-    if let destination = trip.destination {
-        print("✈️ Trip \(index + 1): \(destination)")
-    } else {
-        print("⚠️ Trip \(index + 1): Destination missing!")
-    }
-}
 
 print()
 
@@ -99,13 +92,7 @@ print("  Task 3B: Multiple Unwraps")
 print("═══════════════════════════════════════")
 
 // 🛠 Your code here:
-for (index, trip) in trips.enumerated() {
-    if let destination = trip.destination, let budget = trip.budget {
-        print("✅ \(destination) — Budget: 💸 $\(budget)")
-    } else {
-        print("⚠️ Trip \(index + 1): Missing destination or budget")
-    }
-}
+
 
 print()
 
@@ -135,13 +122,7 @@ print("  Task 3C: Filtered Unwrap")
 print("═══════════════════════════════════════")
 
 // 🛠 Your code here:
-for trip in trips {
-    if let destination = trip.destination,
-       let budget = trip.budget,
-       budget > 1500 {
-        print("🌟 Premium trip: \(destination) — 💸 $\(budget)")
-    }
-}
+
 
 // 💡 Think about: How is this different from using `??` ?
 //    With `??` you always get a value (real or default).
@@ -199,14 +180,7 @@ print()
 
 // ✅ TODO: Rewrite as flat chained if let:
 print("Flat (your version):")
-for (index, trip) in trips.enumerated() {
-    // 🛠 Your code here — use a single if let with commas:
-    if let dest = trip.destination,
-       let budget = trip.budget,
-       let duration = trip.duration {
-        print("  Trip \(index + 1): \(dest) — $\(budget) — \(duration) days")
-    }
-}
+
 
 print()
 

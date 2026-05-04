@@ -35,13 +35,6 @@ struct Trip {
     //   "📍 Unknown — 💸 N/A — 📅 5 days"
     
     // 🛠 Your code here:
-    var summary: String {
-        var dest = destination ?? "Unknown"
-        var cost = budget != nil ? "$\(budget!)" : "N/A"
-        var days = duration != nil ? "\(duration!)" : "N/A"
-        
-        return "📍 \(dest) — 💸 \(cost) — 📅 \(days)"
-    }
 
     
     // ─────────────────────────────────────────────────────────

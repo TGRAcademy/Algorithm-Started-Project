@@ -34,13 +34,8 @@ struct Trip {
     //   "📍 Tokyo — 💸 $2000 — 📅 7 days"
     //   "📍 Unknown — 💸 N/A — 📅 5 days"
     
-    var summary: String {
-        let dest = destination ?? "Unknown"
-        let cost = budget != nil ? "$\(budget!)" : "N/A"
-        let days = duration != nil ? "\(duration!) days" : "N/A"
-        return "📍 \(dest) — 💸 \(cost) — 📅 \(days)"
-    }
-    
+    //Write your code here, create var 'summary'
+
     // ─────────────────────────────────────────────────────────
     // MARK: Task 5C — More Computed Properties
     // ─────────────────────────────────────────────────────────
@@ -49,19 +44,13 @@ struct Trip {
     //       It should return budget / duration if both exist,
     //       or nil if either is missing.
     
-    var costPerDay: Int? {
-        guard let budget = budget, let duration = duration, duration > 0 else {
-            return nil
-        }
-        return budget / duration
-    }
+    //Write your code here
     
     // TODO: Add a computed property `isComplete` that returns Bool.
     //       Returns true only if ALL three fields have values.
     
-    var isComplete: Bool {
-        return destination != nil && budget != nil && duration != nil
-    }
+    //Write your code here
+
 }
 
 let trips: [Trip] = [

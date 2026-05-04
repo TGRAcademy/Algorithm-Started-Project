@@ -51,9 +51,7 @@ print("  Task 1A: Print All Destinations")
 print("═══════════════════════════════════════")
 
 // 🛠 Your code here:
-for trip in trips {
-    print("✈️ \(trip.destination)")
-}
+
 
 print()
 
@@ -78,9 +76,7 @@ print("  Task 1B: Numbered Trip List")
 print("═══════════════════════════════════════")
 
 // 🛠 Your code here:
-for (index, trip) in trips.enumerated() {
-    print("Trip \(index + 1): \(trip.destination) — 💸 $\(trip.budget) — 📅 \(trip.duration) days")
-}
+
 
 print()
 
@@ -106,11 +102,7 @@ print("  Task 1C: Budget-Friendly Trips")
 print("═══════════════════════════════════════")
 
 // 🛠 Your code here:
-for trip in trips {
-    if trip.budget <= 1500 {
-        print("🏷️ Budget-friendly: \(trip.destination) — 💸 $\(trip.budget)")
-    }
-}
+
 
 print()
 
@@ -138,10 +130,6 @@ print("  Task 1D: Departure Countdown")
 print("═══════════════════════════════════════")
 
 // 🛠 Your code here:
-for i in (1...5).reversed() {
-    print("🚀 Departing in \(i)...")
-}
-print("🛫 Let's go!")
 
 print()
 

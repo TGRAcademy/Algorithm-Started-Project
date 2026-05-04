@@ -113,10 +113,7 @@ print("  Task 2C: Safe Defaults with ??")
 print("═══════════════════════════════════════")
 
 // 🛠 Your code here:
-for (index, trip) in trips.enumerated() {
-    let destination = trip.destination ?? "Not decided"
-    print("✈️ Trip \(index + 1): \(destination)")
-}
+
 
 print()
 
@@ -145,12 +142,7 @@ print("  Task 2D: Complete Trip Info")
 print("═══════════════════════════════════════")
 
 // 🛠 Your code here:
-for (index, trip) in trips.enumerated() {
-    let dest = trip.destination ?? "TBD"
-    let cost = trip.budget != nil ? "💸 $\(trip.budget!)" : "💸 No budget"
-    let days = trip.duration != nil ? "📅 \(trip.duration!) days" : "📅 Flexible"
-    print("Trip \(index + 1): \(dest) — \(cost) — \(days)")
-}
+
 
 // 💡 Think about: We used `!` above after checking for nil with `!= nil`.
 //    This is *technically* safe, but there's a better way — you'll learn

@@ -34,13 +34,7 @@ print("════════════════════════�
 print("  Task 4A: Skip Missing Destinations")
 print("═══════════════════════════════════════")
 
-for (index, trip) in trips.enumerated() {
-    guard let destination = trip.destination else {
-        print("⏭ Skipping trip \(index + 1): no destination")
-        continue
-    }
-    print("✈️ \(destination)")
-}
+// Write Your Code Here:
 
 print()
 
@@ -50,15 +44,8 @@ print("════════════════════════�
 print("  Task 4B: Only Complete Trips")
 print("═══════════════════════════════════════")
 
-for (index, trip) in trips.enumerated() {
-    guard let destination = trip.destination,
-          let budget = trip.budget,
-          let duration = trip.duration else {
-        print("⏭ Trip \(index + 1): incomplete data")
-        continue
-    }
-    print("✅ \(destination) — 💸 $\(budget) — 📅 \(duration) days")
-}
+// Write Your Code Here:
+
 
 print()
 
@@ -68,22 +55,9 @@ print("════════════════════════�
 print("  Task 4C: guard let in Functions")
 print("═══════════════════════════════════════")
 
-func printTripDetails(_ trip: Trip) {
-    guard let destination = trip.destination else {
-        print("⚠️ Cannot display: missing destination")
-        return
-    }
-    guard let budget = trip.budget else {
-        print("⚠️ Cannot display: missing budget for \(destination)")
-        return
-    }
-    guard let duration = trip.duration else {
-        print("⚠️ Cannot display: missing duration for \(destination)")
-        return
-    }
-    let costPerDay = budget / duration
-    print("📋 \(destination): $\(budget) total, $\(costPerDay)/day for \(duration) days")
-}
+// Write Your Code Here:
+// Create printTripDetails Func
+
 
 for trip in trips {
     printTripDetails(trip)
@@ -98,26 +72,14 @@ print("  Task 4D: if let vs guard let")
 print("═══════════════════════════════════════")
 
 print("--- if let version ---")
-for (index, trip) in trips.enumerated() {
-    if let dest = trip.destination,
-       let budget = trip.budget,
-       let duration = trip.duration {
-        print("  ✅ Trip \(index + 1): \(dest) — $\(budget) — \(duration) days")
-    }
-}
+// Write Your Code Here:
+
 
 print()
 
 print("--- guard let version ---")
-for (index, trip) in trips.enumerated() {
-    guard let dest = trip.destination,
-          let budget = trip.budget,
-          let duration = trip.duration else {
-        print("  ⏭ Trip \(index + 1): skipped")
-        continue
-    }
-    print("  ✅ Trip \(index + 1): \(dest) — $\(budget) — \(duration) days")
-}
+// Write Your Code Here:
+
 
 /*
  💡 Key difference:
