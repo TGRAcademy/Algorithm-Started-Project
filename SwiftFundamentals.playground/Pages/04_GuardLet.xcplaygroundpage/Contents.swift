@@ -35,49 +35,30 @@ print("  Task 4A: Skip Missing Destinations")
 print("═══════════════════════════════════════")
 
 // 🛠 Your code here:
+// print destination if exist
+// print ("⏭ Skipping trip \(index + 1): no destination") if destination nil
 
 print()
 
-// MARK: - Task 4B: guard let — Multiple Fields
+// MARK: - Task 4B: guard let in a Function
 
 print("═══════════════════════════════════════")
-print("  Task 4B: Only Complete Trips")
+print("  Task 4B: guard let in Functions")
 print("═══════════════════════════════════════")
 
 // 🛠 Your code here:
 
-
-print()
-
-// MARK: - Task 4C: guard let in a Function
-
-print("═══════════════════════════════════════")
-print("  Task 4C: guard let in Functions")
-print("═══════════════════════════════════════")
-
-// 🛠 Your code here:
+// Make func printTripDetails(_ trip: Trip)
+// this func will return print("⚠️ Cannot display: missing destination") if destination is nil
+// this func will return print("⚠️ Cannot display: missing duration for \(destination)") if duration is nil
+// this func will return print("⚠️ Cannot display: missing budget for \(destination)") if budget is nil
+// if the trip has no nil print ("📋 \(destination): $\(budget) total, $\(costPerDay)/day for \(duration) days")
 
 
-print()
-
-// MARK: - Task 4D: if let vs guard let — Side by Side
-// Print all the element in trips(destination, budget, duration)
-
-print("═══════════════════════════════════════")
-print("  Task 4D: if let vs guard let")
-print("═══════════════════════════════════════")
-
-print("--- if let version ---")
-// 🛠 Your code here:
-
-
-print()
-
-print("--- guard let version ---")
-// 🛠 Your code here:
-
-
-print()
+for trip in trips {
+    // Fix This Error
+    printTripDetails(trip)
+}
 /*
  💡 Key difference:
     - `if let` → the unwrapped values live INSIDE the braces.

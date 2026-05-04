@@ -79,25 +79,6 @@ for (index, trip) in trips.enumerated() {
 print()
 
 
-// MARK: - Task 5B: Stored vs Computed
-
-print("═══════════════════════════════════════")
-print("  Task 5B: Computed Stays In Sync")
-print("═══════════════════════════════════════")
-
-var myTrip = Trip(destination: "London", budget: 1800, duration: 6)
-print("Before: \(myTrip.summary)")
-
-myTrip.budget = 2500
-print("After:  \(myTrip.summary)")
-
-// 💡 The summary automatically reflects the new budget!
-
-myTrip.destination = "Edinburgh"
-print("Updated: \(myTrip.summary)")
-
-print()
-
 
 // MARK: - Task 5C: Using costPerDay and isComplete
 
@@ -109,24 +90,6 @@ for (index, trip) in trips.enumerated() {
     let status = trip.isComplete ? "✅ Complete" : "⚠️ Incomplete"
     let cost = trip.costPerDay != nil ? "$\(trip.costPerDay!)/day" : "N/A"
     print("Trip \(index + 1): \(status) — Cost per day: \(cost)")
-}
-
-print()
-
-
-// MARK: - Task 5D: Combining Computed Properties
-
-print("═══════════════════════════════════════")
-print("  Task 5D: Complete Trips Report")
-print("═══════════════════════════════════════")
-
-for trip in trips {
-    guard trip.isComplete else { continue }
-    
-    print("📋 \(trip.summary)")
-    if let cpd = trip.costPerDay {
-        print("   → 💰 Cost per day: $\(cpd)")
-    }
 }
 
 print()

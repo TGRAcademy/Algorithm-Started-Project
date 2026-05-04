@@ -51,10 +51,8 @@ print("════════════════════════�
 print("  Task 2A: Printing Optionals")
 print("═══════════════════════════════════════")
 
-for (index, trip) in trips.enumerated() {
-    // Notice the output: Optional("Tokyo"), nil, etc.
-    print("Trip \(index + 1) destination: \(String(describing: trip.destination))")
-}
+// Write your code here:
+
 
 // 💡 Question: Why does the output look ugly with "Optional(...)"?
 //    Because Swift wraps optional values to distinguish them from
